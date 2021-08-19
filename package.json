@@ -12,9 +12,12 @@
   "repository": "https://github.com/nesthub/nodejs_script_is_nickname_available",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "eslint": "^7.29.0",
     "eslint-config-zavatta": "^6.0.3",
-    "website-scraper": "^4.2.3"
+    "lodash": "^4.17.21",
+    "request": "^2.88.2",
+    "require-directory": "^2.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
