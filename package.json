@@ -16,6 +16,8 @@
     "eslint": "^7.29.0",
     "eslint-config-zavatta": "^6.0.3",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "prettyjson": "^1.2.1",
     "request": "^2.88.2",
     "require-directory": "^2.1.1"
   },
