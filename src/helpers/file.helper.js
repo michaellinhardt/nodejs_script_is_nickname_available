@@ -1,31 +1,84 @@
 import fs from 'fs'
+const { dataPath, nicknamePath } = require('../config').default
 
-const path = './src/result.json'
-
-const storeResult = (data, retry = 3, err = null) => {
+/**
+ * Save the object data into a file
+ * @param {object} data object data to save
+ * @param {integer} retry number of retry if fail
+ * @param {error_instance} err 
+ */
+const updateData = (data, retry = 3, err = null) => {
     if (retry < 1) {
-        return console.debug('\n\n /!\\ FAILED TO SAVE RESULT JSON /!\\', err)
-    }
+        return console.debug('\n\n /!\\ FAILED TO SAVE RESULT JSON /!\\', err) }
 
     try {
-        fs.writeFileSync(path, JSON.stringify(data))
+        fs.writeFileSync(dataPath, JSON.stringify(data))
 
-    } catch (err) { return storeResult(data, (retry - 1), err) }
+    } catch (err) { return updateData(data, (retry - 1), err) }
 }
 
-const loadResult = (retry = 3, err = null) => {
+/**
+ * Retrieve the data from data file
+ * @param {integer} retry number of retry if fail
+ * @param {error_instance} err 
+ * @returns 
+ */
+const getData = (retry = 3, err = null) => {
     if (retry < 1) {
         console.debug('\n\n /!\\ FAILED TO READ RESULT JSON /!\\', err)
-        return process.exit(1)
-    }
+        return process.exit(1) }
 
     try {
-        return JSON.parse(fs.readFileSync(path, 'utf8'))
+        return JSON.parse(fs.readFileSync(dataPath, 'utf8'))
 
-    } catch (err) { return loadResult(retry - 1, err) }
+    } catch (err) { return getData(retry - 1, err) }
+}
+
+/**
+ * Retrieve the nickname from client script
+ * @param {integer} retry number of retry if fail
+ * @param {error_instance} err 
+ * @returns 
+ */
+const getNickname = (retry = 3, err = null) => {
+    if (retry < 1) {
+        console.debug('\n\n /!\\ FAILED TO READ NICKNAME JSON /!\\', err)
+        return process.exit(1) }
+
+        // File doesnt exist yet, return empty array
+        try {
+            if (!fs.existsSync(nicknamePath)) { return [] }
+
+          } catch(err) { return getNickname(retry - 1, err) }
+
+
+    try {
+        const newNickname = JSON.parse(fs.readFileSync(nicknamePath, 'utf8'))
+        fs.unlinkSync(nicknamePath)
+        if (newNickname.length > 0) {
+            console.debug(`=== [ RECEIVED ( ${newNickname.length} ) NEW NICKNAME ] ===`)
+        }
+        return newNickname
+
+    } catch (err) { return getNickname(retry - 1, err) }
+}
+
+const isFileNicknameJson = () => fs.existsSync(nicknamePath)
+
+const updateNicknameJson = (data, retry = 3, err = null) => {
+    if (retry < 1) {
+        return console.debug('\n\n /!\\ FAILED TO SAVE NICKNAME JSON /!\\', err) }
+
+    try {
+        fs.writeFileSync(nicknamePath, JSON.stringify(data))
+
+    } catch (err) { return updateData(data, (retry - 1), err) }
 }
 
 export default {
-    storeResult,
-    loadResult,
+    updateData,
+    getData,
+    getNickname,
+    isFileNicknameJson,
+    updateNicknameJson,
 }

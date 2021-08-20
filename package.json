@@ -4,7 +4,8 @@
   "description": "is Nickname Available",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_ENV=production babel-node src/index.js",
+    "start": "NODE_ENV=production nodemon src/index.js --exec babel-node --ignore '*.json'",
+    "nickname": "NODE_ENV=production nodemon src/nickname.js --exec babel-node --ignore '*.json'",
     "reset": "watchman watch-del-all ; rm -rf ./node_modules ; rm -rf package-lock.json ; npm install",
     "update": "watchman watch-del-all ; rm -rf ./node_modules ; rm -rf package-lock.json ; npm update"
   },
@@ -15,6 +16,7 @@
     "bluebird": "^3.7.2",
     "eslint": "^7.29.0",
     "eslint-config-zavatta": "^6.0.3",
+    "express": "^4.17.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "prettyjson": "^1.2.1",
