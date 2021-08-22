@@ -210,41 +210,16 @@ export default {
     ['ms'], ['ls'], ['vc'], ['dt'], ['dl'], ['rl'],
     ['sr'], ['db'], ['kl'], ['dc'], ['tp'], ['sv'], ['mc'], ['lb'],
     ['bm'], ['lk'], ['pk'], ['vt'], ['pv'], ['rv'], ['kv'],
-    ['tv'], ['td'], ['tm'], ['tf'], ['kx'], ['gx'], ['vg'],
-    ['lg'],
+    ['tv'], ['td'], ['tm'], ['tf'], ['kx'], ['gx'], ['vg'], ['lg'],
 
-    ['q'], ['y'],
+    ['h'],
 
-    // vowel + consonant or special one
-    ['yw'],
-    ['w'],
-    ['z'],
-    ['x'],
-    ['g'],
-    ['f'],
-    ['j'],
-    ['q'],
-    ['x'],
-    ['y'],
-    ['cs'],
-    ['mb'],
-    ['vb'],
-    ['rt'],
-    ['pt'],
+    // Girly / weird sound
     ['i', 'y'],
     ['v', 'w'],
     ['oin'], ['eq'], ['fi'], ['ya'], ['fy'],
     ['py'], ['pi'], ['li'], ['ly'], ['ik'],
     ['udi'], ['ny'], ['ni'], ['my'], ['mi'],
-
-    // double consonant
-    ['kr', 'xt'],
-    ['kfa'], ['akb'], ['kj'], ['kg'], ['kd'],
-    ['nm'], ['mn'], ['xt'], ['xn'], ['xs'],
-    ['xm'], ['rm'], ['rn'], ['kb'], ['kc'],
-    ['xr'], ['xw'], ['xb'], ['rc'], ['ynx'],
-    ['yk'], ['rx'], ['kp'], ['mx'], ['yx'],
-    ['kmax'], ['gbw'], ['cr', 'xh'],
   ],
 
   // To compose a nickname, it first compose sound using a string from left array
