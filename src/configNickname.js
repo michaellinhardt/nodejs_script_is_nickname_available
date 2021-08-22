@@ -212,9 +212,8 @@ export default {
     ['bm'], ['lk'], ['pk'], ['vt'], ['pv'], ['rv'], ['kv'],
     ['tv'], ['td'], ['tm'], ['tf'], ['kx'], ['gx'], ['vg'], ['lg'],
 
-    ['h'],
-
     // Girly / weird sound
+    ['h'],
     ['i', 'y'],
     ['v', 'w'],
     ['oin'], ['eq'], ['fi'], ['ya'], ['fy'],
