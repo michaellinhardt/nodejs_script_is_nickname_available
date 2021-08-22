@@ -3,6 +3,10 @@
       "zavatta"
     ],
     "rules": {
+      "no-console": "off",
+      "callback-return": "off",
+      "max-statements-per-line": "off",
+      "no-catch-shadow": "off",
       "indent": [
         "error",
         2
@@ -10,7 +14,7 @@
       "max-len": [
         "warn",
         {
-          "code": 100
+          "code": 120
         }
       ],
       "no-sync": 0,

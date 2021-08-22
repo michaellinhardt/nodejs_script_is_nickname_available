@@ -31,7 +31,7 @@ export default {
       const lowered = string.toLowerCase()
       return lowered.charAt(0).toUpperCase() + lowered.slice(1)
     }
- 
+
     /**
      * Turn a filename into camelCase.
      * ex. user.address.controller become userAddressController

@@ -1,14 +1,12 @@
-import debug from '../helpers/debug.helper'
-
 export default {
-    url: 'http://cactus.tools/twitch/username?username=[nickname]',
-    isAvailable: async html => {
-        if (html.indexOf('<strong>NOT</strong>') > -1) {
-            return 'no'
-        } else if (html.indexOf('is available') > -1) {
-            return 'yes'
-        } else {
-            return 'fail'
-        }
-    },
+  url: 'http://cactus.tools/twitch/username?username=[nickname]',
+  isAvailable: html => {
+    if (html.search(/<strong>NOT<\/strong>/i) > -1) {
+      return 'no'
+    } else if (html.search(/is available/i) > -1) {
+      return 'yes'
+    }
+    return 'fail'
+
+  },
 }

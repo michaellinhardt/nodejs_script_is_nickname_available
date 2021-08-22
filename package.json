@@ -4,10 +4,12 @@
   "description": "is Nickname Available",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_ENV=production nodemon src/index.js --exec babel-node --ignore '*.json'",
-    "nickname": "NODE_ENV=production nodemon src/nickname.js --exec babel-node --ignore '*.json'",
+    "start": "NODE_ENV=production babel-node src/index.js",
+    "nickname": "NODE_ENV=production babel-node src/nickname.js",
+    "available": "NODE_ENV=production nodemon src/available.js --exec babel-node --ignore '*.json'",
     "reset": "watchman watch-del-all ; rm -rf ./node_modules ; rm -rf package-lock.json ; npm install",
-    "update": "watchman watch-del-all ; rm -rf ./node_modules ; rm -rf package-lock.json ; npm update"
+    "update": "watchman watch-del-all ; rm -rf ./node_modules ; rm -rf package-lock.json ; npm update",
+    "lint": "./node_modules/eslint/bin/eslint.js src"
   },
   "author": "Michael Linhardt",
   "repository": "https://github.com/nesthub/nodejs_script_is_nickname_available",
