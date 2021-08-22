@@ -9,7 +9,7 @@ export default {
 
   // Valid length for a nickname generated string
   nicknameLengthMin: 5,
-  nicknameLengthMax: 5,
+  nicknameLengthMax: 6,
 
   // Max nickname generated before rebuild all the seeds
   rebuildSeedEvery: 1,
@@ -73,21 +73,35 @@ export default {
   // Nickname will never start with this if 'useDontStartWith' is true
   dontStartWith: [
     // Composition of sound I dont like as a nickname starter
-    'b', 'c', 'ced', 'cef', 'ceg', 'jum', 'y', 'u', 'de', 'i',
-    'do', 'bc', 'du',
-    'ba', 'ca', 'da', 'fa', 'ga', 'ha', 'ja', 'ka', 'la', 'ma', 'na', 'pa', 'qa',
-    'ra', 'sa', 'ta', 'va', 'wa', 'xa', 'za',
-    'by', 'cy', 'dy', 'fy', 'gy', 'hy', 'jy', 'ky', 'ly', 'my', 'ny', 'py', 'qy',
-    'ry', 'sy', 'ty', 'vy', 'wy', 'xy', 'zy',
-    'bi', 'ci', 'di', 'fi', 'gi', 'hi', 'ji', 'ki', 'li', 'mi', 'ni', 'pi', 'qi',
-    'ri', 'si', 'ti', 'vi', 'wi', 'xi', 'zi',
-    'eji', 'egi',
-    'i', 'o', 'h',
+    'h', 'q',
+
+    ['qq'], ['wq'], ['rq'], ['tq'], ['pq'], ['sq'], ['dq'], ['fq'], ['gq'], ['hq'], ['jq'], ['kq'], ['lq'], ['zq'], ['xq'], ['cq'], ['vq'], ['bq'], ['nq'], ['mq'],
+    ['qw'], ['ww'], ['rw'], ['tw'], ['pw'], ['sw'], ['dw'], ['fw'], ['gw'], ['hw'], ['jw'], ['kw'], ['lw'], ['zw'], ['xw'], ['cw'], ['vw'], ['bw'], ['nw'], ['mw'],
+    ['qr'], ['wr'], ['rr'], ['hr'], ['jr'], ['lr'], ['zr'], ['xr'], ['cr'], ['nr'], ['mr'],
+    ['qt'], ['wt'], ['rt'], ['tt'], ['pt'], ['dt'], ['ft'], ['gt'], ['ht'], ['jt'], ['kt'], ['lt'], ['zt'], ['xt'], ['ct'], ['vt'], ['bt'], ['nt'], ['mt'],
+    ['qp'], ['wp'], ['rp'], ['tp'], ['pp'], ['dp'], ['fp'], ['gp'], ['hp'], ['jp'], ['kp'], ['lp'], ['zp'], ['xp'], ['cp'], ['vp'], ['bp'], ['np'], ['mp'],
+    ['qs'], ['ws'], ['rs'], ['ss'], ['ds'], ['fs'], ['gs'], ['hs'], ['js'], ['ls'], ['zs'], ['xs'], ['cs'], ['vs'], ['bs'], ['ns'], ['ms'],
+    ['qd'], ['wd'], ['rd'], ['td'], ['pd'], ['sd'], ['dd'], ['fd'], ['gd'], ['hd'], ['jd'], ['kd'], ['ld'], ['zd'], ['xd'], ['cd'], ['vd'], ['bd'], ['nd'], ['md'],
+    ['qf'], ['wf'], ['rf'], ['tf'], ['pf'], ['sf'], ['df'], ['ff'], ['gf'], ['hf'], ['jf'], ['kf'], ['lf'], ['zf'], ['xf'], ['cf'], ['vf'], ['bf'], ['nf'], ['mf'],
+    ['qg'], ['wg'], ['rg'], ['tg'], ['pg'], ['sg'], ['dg'], ['fg'], ['gg'], ['hg'], ['jg'], ['kg'], ['lg'], ['zg'], ['xg'], ['cg'], ['vg'], ['bg'], ['ng'], ['mg'],
+    ['qh'], ['wh'], ['rh'], ['th'], ['ph'], ['sh'], ['dh'], ['fh'], ['gh'], ['hh'], ['jh'], ['kh'], ['lh'], ['zh'], ['xh'], ['ch'], ['vh'], ['bh'], ['nh'], ['mh'],
+    ['qj'], ['wj'], ['rj'], ['tj'], ['pj'], ['sj'], ['dj'], ['fj'], ['gj'], ['hj'], ['jj'], ['kj'], ['lj'], ['zj'], ['xj'], ['cj'], ['vj'], ['bj'], ['nj'], ['mj'],
+    ['qk'], ['wk'], ['rk'], ['tk'], ['pk'], ['sk'], ['dk'], ['fk'], ['gk'], ['hk'], ['jk'], ['kk'], ['lk'], ['zk'], ['xk'], ['ck'], ['vk'], ['bk'], ['nk'], ['mk'],
+    ['ql'], ['wl'], ['rl'], ['tl'], ['dl'], ['fl'], ['gl'], ['hl'], ['jl'], ['ll'], ['zl'], ['xl'], ['cl'], ['vl'], ['bl'], ['nl'], ['ml'],
+    ['qz'], ['wz'], ['rz'], ['tz'], ['pz'], ['sz'], ['dz'], ['fz'], ['gz'], ['hz'], ['jz'], ['kz'], ['lz'], ['zz'], ['xz'], ['cz'], ['vz'], ['bz'], ['nz'], ['mz'],
+    ['qx'], ['wx'], ['rx'], ['tx'], ['px'], ['sx'], ['dx'], ['fx'], ['gx'], ['hx'], ['jx'], ['kx'], ['lx'], ['zx'], ['xx'], ['cx'], ['vx'], ['bx'], ['nx'], ['mx'],
+    ['qc'], ['wc'], ['rc'], ['tc'], ['pc'], ['sc'], ['dc'], ['fc'], ['gc'], ['hc'], ['jc'], ['kc'], ['lc'], ['zc'], ['xc'], ['cc'], ['vc'], ['bc'], ['nc'], ['mc'],
+    ['qv'], ['wv'], ['rv'], ['tv'], ['pv'], ['sv'], ['dv'], ['fv'], ['gv'], ['hv'], ['jv'], ['kv'], ['lv'], ['zv'], ['xv'], ['cv'], ['vv'], ['bv'], ['nv'], ['mv'],
+    ['qb'], ['wb'], ['rb'], ['tb'], ['pb'], ['sb'], ['db'], ['fb'], ['gb'], ['hb'], ['jb'], ['kb'], ['lb'], ['zb'], ['xb'], ['cb'], ['vb'], ['bb'], ['nb'], ['mb'],
+    ['qn'], ['wn'], ['rn'], ['tn'], ['pn'], ['sn'], ['dn'], ['fn'], ['gn'], ['hn'], ['jn'], ['kn'], ['ln'], ['zn'], ['xn'], ['cn'], ['vn'], ['bn'], ['nn'], ['mn'],
+    ['qm'], ['wm'], ['rm'], ['tm'], ['pm'], ['sm'], ['dm'], ['fm'], ['gm'], ['hm'], ['jm'], ['km'], ['lm'], ['zm'], ['xm'], ['cm'], ['vm'], ['bm'], ['nm'], ['mm'],
   ],
 
   // Nickname will never end with this if 'useDontEndWith' is true
   dontEndWith: [
-    'a', 'i', 'y', 'w', 'g', 'j', 'h', 'rd', 'cl',
+    'a', 'i', 'y',
+
+    'w', 'g', 'j', 'h', 'q', 's',
 
     ['qq'], ['wq'], ['rq'], ['tq'], ['pq'], ['sq'], ['dq'], ['fq'], ['gq'], ['hq'], ['jq'], ['kq'], ['lq'], ['zq'], ['xq'], ['cq'], ['vq'], ['bq'], ['nq'], ['mq'],
     ['qw'], ['ww'], ['rw'], ['tw'], ['pw'], ['sw'], ['dw'], ['fw'], ['gw'], ['hw'], ['jw'], ['kw'], ['lw'], ['zw'], ['xw'], ['cw'], ['vw'], ['bw'], ['nw'], ['mw'],
@@ -176,7 +190,7 @@ export default {
     ['qw'], ['rw'], ['pw'], ['dw'], ['fw'], ['gw'], ['hw'], ['jw'], ['lw'], ['zw'], ['xw'], ['cw'], ['vw'], ['bw'], ['nw'], ['mw'],
     ['qr'], ['wr'], ['sr'], ['jr'],
     ['wr'], ['pm'], ['lm'], ['lv'],
-    ['qt'], ['wt'], ['rt'], ['pt'], ['dt'], ['ft'], ['gt'], ['ht'], ['jt'], ['lt'], ['zt'], ['xt'], ['ct'], ['vt'], ['bt'], ['nt'], ['mt'],
+    ['qt'], ['wt'], ['rt'], ['pt'], ['dt'], ['ft'], ['gt'], ['ht'], ['jt'], ['lt'], ['zt'], ['xt'], ['ct'], ['vt'], ['bt'], ['nt'], ['mt'], ['kt'],
     ['qp'], ['wp'], ['rp'], ['tp'], ['dp'], ['fp'], ['gp'], ['hp'], ['jp'], ['kp'], ['lp'], ['zp'], ['xp'], ['cp'], ['vp'], ['bp'], ['np'], ['mp'],
     ['qs'], ['ws'], ['rs'], ['ts'], ['ps'], ['ds'], ['fs'], ['gs'], ['hs'], ['js'], ['zs'], ['ls'], ['xs'], ['cs'], ['vs'], ['bs'], ['ns'], ['ms'],
     ['qd'], ['wd'], ['rd'], ['td'], ['pd'], ['sd'], ['fd'], ['gd'], ['hd'], ['jd'], ['kd'], ['ld'], ['zd'], ['xd'], ['cd'], ['vd'], ['bd'], ['nd'], ['md'],
