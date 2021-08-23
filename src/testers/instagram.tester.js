@@ -1,12 +1,21 @@
-export default {
-  url: 'http://instausername.com/availability?q=[nickname]',
-  isAvailable: html => {
-    if (html.search(/is taken/i) > -1) {
+import RequestHelper from '../helpers/request.helper'
+
+const
+  url = 'http://instausername.com/availability?q=[nickname]',
+  no = /is taken/i,
+  yes = /is free/i,
+
+  run = async (nickname) => {
+    const urlWithNickname = url.replace('[nickname]', nickname)
+    const html = await RequestHelper.get(urlWithNickname)
+
+    if (html.search(no) > -1) {
       return 'no'
-    } else if (html.search(/is free/i) > -1) {
+    } else if (html.search(yes) > -1) {
       return 'yes'
     }
     return 'fail'
 
-  },
-}
+  }
+
+export default { run }

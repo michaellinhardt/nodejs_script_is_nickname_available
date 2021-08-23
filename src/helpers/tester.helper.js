@@ -4,7 +4,6 @@ import cfg from '../config'
 
 import FileHelper from './file.helper'
 import NicknameHelper from './nickname.helper'
-import RequestHelper from './request.helper'
 import CodeHelper from './code.helper'
 import DateHelper from './date.helper'
 
@@ -41,7 +40,7 @@ const run = async () => {
 
 }
 
-const runTest = async (nickname, { name, url, isAvailable, retry = cfg.retry }) => {
+const runTest = async (nickname, { name, run, retry = cfg.retry }) => {
 
   const timestampMs = DateHelper.timestampMs()
   if (ignoreTester[name] && ignoreTester[name] > timestampMs) {
@@ -63,14 +62,7 @@ const runTest = async (nickname, { name, url, isAvailable, retry = cfg.retry }) 
     return false
   }
 
-  // Replace the nickname in the url from tester
-  const urlWithNickname = url.replace('[nickname]', nickname)
-
-  // Request the html content from the tester url
-  const html = await RequestHelper.get(urlWithNickname)
-
-  // Execute the function isAvailable() from the tester
-  const result = await isAvailable(html)
+  const result = await run(nickname)
 
   console.debug(`[ ${nickname} ] ${name}: is available? ${result}`)
 
