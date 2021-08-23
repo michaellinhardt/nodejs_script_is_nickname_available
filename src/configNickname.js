@@ -8,7 +8,7 @@ export default {
   soundLengthMax: 4,
 
   // Valid length for a nickname generated string
-  nicknameLengthMin: 5,
+  nicknameLengthMin: 6,
   nicknameLengthMax: 6,
 
   // Max nickname generated before rebuild all the seeds
@@ -64,8 +64,8 @@ export default {
   // Require to have a consonnant or vowel every X character
   // Ex. vowelEvery 2 will invalidate helllo or khloe, because of 3 consonant in a row
   // Ex. consonantEvery 2 will invalidate hellooo or koual
-  consonantEvery: 2,
-  vowelEvery: 2,
+  consonantEvery: 1,
+  vowelEvery: 1,
 
   // List of vowel (better to not change) used for consonantEvery and vowelEvery
   vowel: ['a', 'e', 'i', 'o', 'u', 'y'],
@@ -133,7 +133,6 @@ export default {
 
   // Nickname will never end with this if 'useDontEndWith' is true
   doEndWith: [
-    'up',
   ],
 
   // Only nickname who have a substring from this array will be valid
@@ -141,6 +140,41 @@ export default {
   // That way it will necessaray to match with all string
   // Example ['nu', 'la'] will validate 'nutela' but not 'nute' or 'tela'
   exclusiveList: [
+
+    ['wax'],
+    ['rax'],
+    ['tax'],
+    ['pax'],
+    ['dax'],
+    ['kax'],
+    ['nax'],
+    ['wrax'],
+    ['trax'],
+    ['prax'],
+    ['drax'],
+    ['grax'],
+    ['krax'],
+    ['crax'],
+    ['vrax'],
+    ['brax'],
+
+    ['wox'],
+    ['rox'],
+    ['tox'],
+    ['pox'],
+    ['dox'],
+    ['kox'],
+    ['nox'],
+    ['wrox'],
+    ['trox'],
+    ['prox'],
+    ['drox'],
+    ['grox'],
+    ['krox'],
+    ['crox'],
+    ['vrox'],
+    ['brox'],
+
     // ['sadix'],
     // ['crax'],
     // ['rax'],
@@ -214,6 +248,8 @@ export default {
 
     // Girly / weird sound
     ['h'],
+    ['q'],
+    ['y'],
     ['i', 'y'],
     ['v', 'w'],
     ['oin'], ['eq'], ['fi'], ['ya'], ['fy'],
