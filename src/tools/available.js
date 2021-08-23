@@ -6,7 +6,7 @@
  */
 
 // Import Testers and Helpers files from related folders
-const { importDefaultByFilename } = require('./helpers/import.helper').default
+const { importDefaultByFilename } = require('../helpers/import.helper').default
 const Helpers = importDefaultByFilename('../helpers', '.helper')
 
 // Start infinite loop with a callback function

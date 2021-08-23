@@ -1,4 +1,8 @@
 export default {
+  // Those test will open a Chrome APP to navigate the website
+  // They require to be inside a VM or to not use the PC while runing
+  skipBrowsingTest: false,
+
   // Number of retry to get the HTML content of a page (if fail, default: 3)
   retry: 3,
 
@@ -16,13 +20,11 @@ export default {
   nicknamePath: './src/assets/nickname.json',
 
   // Nickname to test simultanously
-  nicknameConcurence: 4,
+  nicknameConcurence: 5,
 
   // Tester priority, first test those one, if fail, wont test the other
   testerPrio: [
     'instagram',
+    'reddit',
   ],
-
-  // Tester to test simultanously
-  testerConcurence: 4,
 }

@@ -1,6 +1,7 @@
 import RequestHelper from '../helpers/request.helper'
 
 const
+  browsingTest = false,
   url = 'http://cactus.tools/twitch/username?username=[nickname]',
   no = /<strong>NOT<\/strong>/i,
   yes = /is available/i,
@@ -18,4 +19,4 @@ const
 
   }
 
-export default { run }
+export default { run, browsingTest }

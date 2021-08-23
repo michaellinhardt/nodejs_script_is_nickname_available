@@ -32,6 +32,8 @@ const run = async () => {
 
   const nicknameToTest = nicknameList.splice(cfg.nicknameConcurence * -1)
 
+  CodeHelper.rorateIndex(cfg.testerPrio)
+
   // For each sound
   await Promise.map(
     nicknameToTest,
@@ -40,7 +42,11 @@ const run = async () => {
 
 }
 
-const runTest = async (nickname, { name, run, retry = cfg.retry }) => {
+const runTest = async (nickname, { name, run, retry = cfg.retry, browsingTest = true }) => {
+
+  if (browsingTest && cfg.skipBrowsingTest) {
+    return true
+  }
 
   const timestampMs = DateHelper.timestampMs()
   if (ignoreTester[name] && ignoreTester[name] > timestampMs) {
@@ -96,10 +102,15 @@ const testNickname = async nickname => {
   // Turn the Tester object into an array, usable by bluebird
   const TestersArr = []
   const TesterPrio = []
+
+  _.forEach(cfg.testerPrio, testName => {
+    if (Testers[testName]) {
+      TesterPrio.push({ name: testName, ...Testers[testName] })
+    }
+  })
+
   _.forEach(Testers, (tester, name) => {
-    if (cfg.testerPrio.find(t => t === name)) {
-      TesterPrio.push({ name, ...tester })
-    } else {
+    if (!TesterPrio.find(t => t.name === name)) {
       TestersArr.push({ name, ...tester })
     }
   })
@@ -107,9 +118,11 @@ const testNickname = async nickname => {
   // Execute the priority test of each Tester from @TesterPrio
   let isFail = false
   await Promise.map(TesterPrio, async (tester) => {
-    const resultTest = await runTest(nickname, tester)
-    if (!resultTest) { isFail = true }
-  }, { concurrency: cfg.testerConcurence })
+    if (!isFail) {
+      const resultTest = await runTest(nickname, tester)
+      if (!resultTest) { isFail = true }
+    }
+  }, { concurrency: 1 })
 
   if (isFail) {
     console.debug(`[ ${nickname} ] Stop! priority test no good`)
@@ -118,10 +131,11 @@ const testNickname = async nickname => {
 
   // Execute the test of each Tester from @TesterArr
   await Promise.map(TestersArr, async (tester) => {
-
-    await runTest(nickname, tester)
-
-  }, { concurrency: cfg.testerConcurence })
+    if (!isFail) {
+      const resultTest = await runTest(nickname, tester)
+      if (!resultTest) { isFail = true }
+    }
+  }, { concurrency: 1 })
 }
 
 export default { run }

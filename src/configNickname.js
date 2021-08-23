@@ -1,5 +1,8 @@
 /* eslint-disable max-len */
 export default {
+  // Already saved nickname will be ignore if not match config
+  ignoreOldInvalid: true,
+
   // Interval between each loop (default 100)
   loopInterval: 100,
 
@@ -42,10 +45,10 @@ export default {
   maxNicknameLevels: 3,
 
   // Set true to allow 2 times or more the same char in a nickname (ex. 'Pala')
-  allowDoubleLetter: false,
+  allowDoubleLetter: true,
 
   // Do not allow double char in a row. ex. bbali or deep
-  allowDoubleLetterInarow: false,
+  allowDoubleLetterInarow: true,
 
   // Use the array "dontStartWith" or "dontEndWith" to invalidate some nickname
   useDontStartWith: true,
@@ -64,8 +67,8 @@ export default {
   // Require to have a consonnant or vowel every X character
   // Ex. vowelEvery 2 will invalidate helllo or khloe, because of 3 consonant in a row
   // Ex. consonantEvery 2 will invalidate hellooo or koual
-  consonantEvery: 1,
-  vowelEvery: 1,
+  consonantEvery: 2,
+  vowelEvery: 2,
 
   // List of vowel (better to not change) used for consonantEvery and vowelEvery
   vowel: ['a', 'e', 'i', 'o', 'u', 'y'],
@@ -221,7 +224,7 @@ export default {
     ['bt'], ['nt'], ['pb'], ['np'], ['mp'], ['ns'], ['nm'], ['vd'], ['km'], ['kn'], ['bp'], ['dm'],
     ['qn'], ['wn'], ['rn'], ['tn'], ['pn'], ['dn'], ['fn'], ['hn'], ['jn'], ['ln'], ['zn'], ['xn'], ['cn'], ['vn'], ['bn'], ['mn'],
     ['qc'], ['wc'], ['rc'], ['tc'], ['pc'], ['dc'], ['fc'], ['gc'], ['hc'], ['jc'], ['kc'], ['lc'], ['xc'], ['vc'], ['bc'], ['nc'], ['mc'],
-    ['qw'], ['rw'], ['pw'], ['dw'], ['fw'], ['gw'], ['hw'], ['jw'], ['lw'], ['zw'], ['xw'], ['cw'], ['vw'], ['bw'], ['nw'], ['mw'],
+    ['qw'], ['rw'], ['pw'], ['dw'], ['fw'], ['gw'], ['hw'], ['jw'], ['lw'], ['zw'], ['xw'], ['cw'], ['vw'], ['bw'], ['nw'], ['mw'], ['tw'],
     ['qr'], ['wr'], ['sr'], ['jr'],
     ['wr'], ['pm'], ['lm'], ['lv'],
     ['qt'], ['wt'], ['rt'], ['pt'], ['dt'], ['ft'], ['gt'], ['ht'], ['jt'], ['lt'], ['zt'], ['xt'], ['ct'], ['vt'], ['bt'], ['nt'], ['mt'], ['kt'],
@@ -294,8 +297,8 @@ export default {
     'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k',
     'l', 'm', 'n', 'p', 'q', 'r', 's', 't',
     'v', 'w', 'x', 'z',
-    // '',
-    // 'a', 'e', 'i', 'o', 'u', 'y',
+    '',
+    'a', 'e', 'i', 'o', 'u', 'y',
   ],
 
   sound_2: [

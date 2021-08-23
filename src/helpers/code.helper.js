@@ -22,4 +22,8 @@ export default {
 
     return array
   },
+  rorateIndex: array => {
+    const move = array.shift()
+    array.push(move)
+  },
 }

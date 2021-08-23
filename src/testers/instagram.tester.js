@@ -1,6 +1,7 @@
 import RequestHelper from '../helpers/request.helper'
 
 const
+  browsingTest = false,
   url = 'http://instausername.com/availability?q=[nickname]',
   no = /is taken/i,
   yes = /is free/i,
@@ -18,4 +19,4 @@ const
 
   }
 
-export default { run }
+export default { run, browsingTest }

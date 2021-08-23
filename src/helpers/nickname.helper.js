@@ -37,6 +37,8 @@ const isTestedYet = nickname => {
 
 // Extract new nickname from client script and add it to the array
 const getNew = nicknameList => {
+  const skipBrowsingTest = cfgMain.skipBrowsingTest
+
   const nicknameLimit = cfgMain.nicknameConcurence * 3
   if (nicknameList.length >= nicknameLimit) {
     return false
@@ -49,14 +51,22 @@ const getNew = nicknameList => {
   const failedList = {}
   _.forEach(data, (result, nickname) => {
 
-    let completed = true
-    _.forEach(Testers, (_test, name) => {
-      const testResult = _.get(result, name, 'fail')
-      if (testResult === 'fail') { completed = false }
+    let isMissing = false
+    let isNo = false
+    _.forEach(Testers, ({ browsingTest = true }, name) => {
+      if (!browsingTest || !skipBrowsingTest) {
+        const testResult = _.get(result, name, 'fail')
+        if (testResult === 'fail') { isMissing = true }
+        if (testResult === 'no') { isNo = true }
+      }
     })
 
+    if (cfg.ignoreOldInvalid && !isValidNickname(nickname)) {
+      isNo = true
+    }
+
     // Test is already completed
-    if (completed) {
+    if (isNo || !isMissing) {
       completedList[nickname] = true
 
     // Test not completed yet

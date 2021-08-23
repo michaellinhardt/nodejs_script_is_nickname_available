@@ -1,5 +1,4 @@
 import _ from 'lodash'
-
 import FileHelper from './file.helper'
 import NicknameHelper from './nickname.helper'
 
@@ -27,10 +26,15 @@ const display = () => {
     }
   })
 
-  const availableString = availableList.join(' - ')
+  // const availableString = availableList.join(' - ')
 
   console.debug('\n\n\n=== [ AVAILABLE NICKNAMES ] ===')
-  console.debug(availableString)
+
+  _.forEach(availableList, name => {
+    process.stdout.write(`${name} - `)
+  })
+
+  // console.debug(availableString)
   console.debug(availableList.length)
 }
 
